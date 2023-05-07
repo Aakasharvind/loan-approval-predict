@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loan Prediction</title>
+</head>
+
+
+<style>
+    
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background:linear-gradient(rgba(167, 15, 181, 0.8),rgba(183, 21, 126, 0.4));
+    }
+    
+    .sign-up-form {
+        margin: auto;
+        max-width: 500px;
+        width: 80%;
+        background-color: #000;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-input {
+        margin-bottom: 20px;
+    }
+    
+    .form-input label {
+        display: block;
+        margin-bottom: 5px;
+        color:yellow;
+    
+    }
+    
+    .form-input input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        color:black;
+    }
+    
+    .sign-up-formbutton {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 20px;
+        padding: 10px 20px;
+        display:block;
+        margin:auto;
+    }
+    
+    .sign-up-formbutton:hover {
+        background-color: #45a049;
+    }
+    
+    .error {
+        color: red;
+        font-weight: bold;
+        background-color: yellow;
+    }
+    
+    .container {
+        background-color: #000;
+    }
+    .form-input input:focus {
+        outline: none;
+        border: 2px solid yellow;
+    }
+    
+    h1 {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 3em;
+        color: #fff;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+        animation: fadeIn 1s ease;
+    }
+    
+    p {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 1.2em;
+        color: #fff;
+        animation: slideIn 1s ease;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateY(-50%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+   
+      
+      
+    .container {
+       background-color: black;
+       background-size: cover;
+       color: white;
+       display: flex;
+       width:50%;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       height: 150;
+       margin-left:400px;
+     }
+     
+     .text-boxes {
+       background-color: rgba(0,0,0,0.5);
+       padding: 20px;
+       border-radius: 10px;
+     }
+     
+     .text-boxes h1,
+     .text-boxes h2,
+     .text-boxes p {
+       margin: 0;
+       color: white;
+     }
+     
+     .text-boxes h1 {
+       font-size: 36px;
+       margin-bottom: 10px;
+     }
+     
+     .text-boxes h2 {
+       font-size: 24px;
+       margin-bottom: 10px;
+     }
+     
+     .text-boxes p {
+       font-size: 18px;
+       margin-bottom: 20px;
+     }
+     
+       form {
+         margin: 20px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         font-size: 1.2rem;
+       }
+       
+       label {
+         display: block;
+         margin-bottom: 10px;
+       }
+       
+       input[type="text"] {
+         padding: 10px;
+         margin-bottom: 20px;
+         width: 100%;
+         border-radius: 5px;
+         border: 1px solid #ccc;
+       }
+       
+       input[type="submit"] {
+         background-color: #4CAF50;
+         color: white;
+         padding: 12px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+       }
+       
+       input[type="submit"]:hover {
+         background-color: #3e8e41;
+       }
+       
+       /* Add some animation to the form */
+       @keyframes slideIn {
+         from {
+           transform: translateY(-100%);
+         }
+         to {
+           transform: translateY(0);
+         }
+       }
+
+       /* Style for the select element */
+       select {
+         appearance: none; /* Remove default appearance */
+         background-color: #fff; /* Set background color */
+         border: 1px solid #ddd; /* Set border */
+         border-radius: 5px; /* Add border radius */
+         padding: 8px; /* Add padding */
+         font-size: 16px; /* Set font size */
+         width: 100%; /* Set width */
+         box-sizing: border-box; /* Include border and padding in total width */
+         cursor: pointer; /* Change cursor on hover */
+       }
+       
+       /* Style for the dropdown arrow */
+       select::-ms-expand {
+         display: none; /* Remove default arrow on IE10 and IE11 */
+       }
+       select::after {
+         content: '\25BC'; /* Add custom arrow */
+         color: #888; /* Set arrow color */
+         position: absolute; /* Position arrow */
+         top: 10px; /* Adjust arrow position */
+         right: 10px; /* Adjust arrow position */
+         pointer-events: none; /* Make arrow unclickable */
+       }
+       
+       /* Style for the dropdown options */
+       select option {
+         background-color: #fff; /* Set background color */
+         color: #333; /* Set text color */
+         font-size: 16px; /* Set font size */
+         padding: 8px; /* Add padding */
+       }
+       
+       #img {
+        max-width: 500px;
+        animation: zoom-in 1s;
+        margin:auto;
+        display:block;
+    }
+    @keyframes zoom-in {
+        from {
+            transform: scale(0);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+       
+       
+     </style>
+
+<body>
+	<h1>Loan Prediction</h1>
+    <img src="../static/loan.jpg" id="img">
+    <div class = "container">
+	<form action="/predict" method="POST" class="sign-up-form">
+		
+            <div class="form-input"> 
+            
+				
+				
+					<input type="hidden" name="loan_id" value="{{ loan_id }}">
+				
+        </div>
+            
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <div class="radio-group"> <br>
+                <label><input type="radio" name="gender" value="male">Male</label>
+                <label><input type="radio" name="gender" value="female">Female</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="married">Married:</label>
+              <div class="radio-group"><br>
+                <label><input type="radio" name="married" value="yes">Yes</label>
+                <label><input type="radio" name="married" value="no">No</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+			
+				<label for="education"> Education: </label>
+                <div class="radio-group"><br>
+				<label>	<input type="radio" name="education" value="Graduate">Graduate </label>
+				<label>	<input type="radio" name="education" value="Not Graduate">Not Graduate </label>
+                </div>
+
+            <div class="form-group">
+              <label for="dependents">Dependents:</label>
+              <select name="dependents">
+                <option value="">Select</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          
+          
+			
+			<Br>
+            
+        </div>
+        <br>
+            <div class="form-group">
+			 
+				 <label for="self_employed">Self Employed: </label>
+				 <div class="radio-group"><br>
+					<input type="radio" name="self_employed" value="Yes">Yes
+					<input type="radio" name="self_employed" value="No">No
+                 </div>
+			 
+        </div>
+            <div class="form-input">
+			 
+				 <label>Applicant Income: </label>
+				
+					<input type="number" name="applicant_income">
+				
+			 
+        </div>
+            <div class="form-input">
+			 
+				 <label>Co-applicant Income: </label>
+			
+					<input type="number" name="coapplicant_income">
+				
+			 
+        </div>
+            <div class="form-input">
+			 
+				 <label>Loan Amount: </label>
+			
+					<input type="number" name="loan_amount">
+				
+			 
+        </div>
+            <div class="form-input">
+			 
+				 <label>Loan Amount Term: </label>
+			
+					<input type="number" name="loan_amount_term">
+				
+			 
+        </div>
+            <div class="form-group">
+			 
+				 <label for="credit_history">Credit History: </label>
+				
+					<input type="radio" name="credit_history" value="1">Yes
+					<input type="radio" name="credit_history" value="0">No
+            
+			 
+        </div>
+            <div class="form-group">
+			
+			 
+				 <label for="property_area">Property Area: </label>
+				
+					<select name="property_area">
+						<option value="Rural">Rural</option>
+						<option value="Semiurban">Semiurban</option>
+						<option value="Urban">Urban</option>
+					</select>
+              
+                    
+			 
+        </div> <br>
+
+        
+            <div class="sign-up-formbutton">
+			 
+				<input type="submit" value="Predict"> 
+			 
+        </div>
+		</table>
+	</form>
+
+</div>
+</body>
+</html>

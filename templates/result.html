@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Approval Result</title>
+
+    <script>
+        function myfunc() {
+            const predicted_status = {{ predicted_status }}; // assuming you are passing predicted_status as a variable from the server
+            const image = document.querySelector('#img');
+            const message = document.querySelector('#message');
+
+            if (predicted_status == 1) {
+                image.src = '../static/approved.webp';
+                message.textContent = 'Congratulations! Your loan application is approved.';
+            } else {
+                image.src = '../static/rejected.jpg';
+                message.textContent = 'Sorry, your loan application is not approved.';
+            }
+        }
+
+        window.onload = myfunc;
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            animation: fade-in 1s;
+        }
+
+        #img {
+            max-width: 500px;
+            animation: zoom-in 1s;
+        }
+
+        #message {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 50px;
+            animation: slide-up 1s;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            margin-top: 50px;
+            animation: fade-in 1s;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoom-in {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slide-up {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .highlight-link {
+            color: Black;
+            background-color: #f5de50;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+    
+        .highlight-link:hover {
+            background-color: #d7c23c;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Loan Approval Result</h1>
+
+    <div id="container">
+        <img src="../static/approved.webp" id="img" class="img">
+        <p id="message">
+            {% if predicted_status == 1 %}
+                Congratulations! Your loan application is approved.
+            {% else %}
+                Sorry, your loan application is not approved.
+            {% endif %}
+        </p>
+        <a href="/" class="highlight-link">Go back to the loan application form</a>
+    </div>
+</body>
+</html>
